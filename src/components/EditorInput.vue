@@ -10,14 +10,9 @@
     @keydown.enter="editMode = !editMode"
     @blur="editMode = !editMode"
   />
-  <span
-    contenteditable="false"
-    v-else
-    @click="openInput"
-    ref="span"
-    class="blank-verb"
-    >{{ value }}</span
-  >
+  <span v-else @click="openInput" ref="span" class="blank-verb">{{
+    value
+  }}</span>
 </template>
 
 <script>
