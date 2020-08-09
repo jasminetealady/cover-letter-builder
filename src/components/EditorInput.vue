@@ -25,12 +25,6 @@ export default {
     }
   },
   computed: {
-    charLength() {
-      return this.value.length + 1
-    },
-    charLengthCSS() {
-      return this.value.length + 'ch'
-    },
     listeners() {
       return {
         ...this.$listeners,
