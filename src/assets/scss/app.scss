@@ -82,6 +82,11 @@ h6 {
   .editor {
     padding: 24px;
     text-align: left;
+    border-radius: 3px;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   input {
@@ -91,7 +96,6 @@ h6 {
 
     &:focus {
       outline: none;
-      border: solid 1px $coral;
     }
   }
 }

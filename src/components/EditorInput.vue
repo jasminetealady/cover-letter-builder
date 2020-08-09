@@ -7,8 +7,8 @@
     :value="value"
     v-on="listeners"
     :style="{ width: width }"
-    @keydown.enter="editMode = !editMode"
-    @blur="editMode = !editMode"
+    @keydown.enter="editMode = false"
+    @blur="editMode = false"
   />
   <span v-else @click="openInput" ref="span" class="blank-verb">{{
     value
