@@ -40,38 +40,9 @@ import EditorInput from './EditorInput'
 export default {
   inject: ['store'],
   components: { EditorInput },
-  data() {
-    return {
-      hidden: true
-    }
-  },
   computed: {
-    company() {
-      return this.store.coverLetter.companyApplyingTo
-    },
-    position() {
-      return this.store.coverLetter.positionApplyingTo
-    },
-    previousOrCurrentCompany() {
-      return this.store.coverLetter.previousOrCurrentCompany
-    },
-    previousOrCurrentPosition() {
-      return this.store.coverLetter.previousOrCurrentPosition
-    },
-    secondPreviousCompany() {
-      return this.store.coverLetter.secondPreviousCompany
-    },
-    secondPreviousPosition() {
-      return this.store.coverLetter.secondPreviousPosition
-    },
     isCurrentlyEmployed() {
       return this.store.coverLetter.isCurrentlyEmployed
-    },
-    firstPositionAction() {
-      return this.store.coverLetter.firstPositionAction
-    },
-    firstPositionNoun() {
-      return this.store.coverLetter.firstPositionNoun
     }
   }
 }
