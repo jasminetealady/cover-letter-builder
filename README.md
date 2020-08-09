@@ -12,7 +12,7 @@ This is what I started creating. I will update this README as I build out more p
 
 Next, I'd like the user to be able to create their own sentences and paragraph chunks associated with certain topics that they themselves can add. You know yourself and what positions you're looking at. You can figure in advance what themes you might come across. When you are in construction mode, ideally you can check off options pertinent to the current company, and it will build out the paragraph for you. The great thing about the editor is if anything is wonky or you simply want to add in some extra flare, it's easy to edit in place.
 
-Some things to expect: tabs in the sidebar for different sections, a button to copy the letter, a reset button in case you went while free editing and want to go back to the original state, a quality PDF export would be _really_ nice ...
+Some things to expect: tabs in the sidebar for different sections, a button to copy the letter, a reset button in case you went wild while free editing and want to go back to the original state, a quality PDF export would be _really_ nice ...
 
 ## Project setup
 
