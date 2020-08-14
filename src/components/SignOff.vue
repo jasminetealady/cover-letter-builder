@@ -8,6 +8,10 @@
         >
         <input type="text" v-model="store.coverLetter.signOff" />
       </label>
+      <label>
+        <span>Your name</span>
+        <input type="text" v-model="store.coverLetter.userName" />
+      </label>
     </section>
   </div>
 </template>

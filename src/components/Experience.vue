@@ -29,6 +29,7 @@
       <label>
         <span>I currently work here</span>
         <input
+          class="checkbox"
           type="checkbox"
           v-model="store.coverLetter.isCurrentlyEmployed"
         />

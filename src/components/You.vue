@@ -10,7 +10,7 @@
         v-for="(thing, index) in store.coverLetter.thingsYouBring"
       >
         <span>Skill {{ index + 1 }}</span>
-        <textarea type="text" :value="thing" />
+        <textarea @blur="addSkill(index)" type="text" :value="thing" />
       </label>
     </section>
   </div>
@@ -18,6 +18,11 @@
 
 <script>
 export default {
-  inject: ['store']
+  inject: ['store'],
+  methods: {
+    addSkill(index) {
+      this.store.coverLetter.addSkill(index, event.target.value)
+    }
+  }
 }
 </script>

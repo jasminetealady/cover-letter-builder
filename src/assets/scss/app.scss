@@ -3,9 +3,12 @@
 $primary: #fff1ed;
 $secondary: #41a7a7;
 $coral: #ff7474;
+$lightborder: solid 1px rgb(222, 201, 201);
+$text: #272727;
 
 body {
   font-family: 'Source Serif Pro', serif;
+  color: #272727;
 }
 
 p,
@@ -14,8 +17,23 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+span,
+p {
   margin: 0;
+  color: #272727;
+}
+
+.btn {
+  font-weight: 600;
+  font-size: 18px;
+  background: $coral;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px;
+  min-width: 100px;
+  cursor: pointer;
 }
 
 .Sidebar {
@@ -28,15 +46,65 @@ h6 {
   position: relative;
   z-index: 1;
 
+  .checkbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: solid 1px $coral;
+    box-shadow: 2px 3px 14px 0px rgba(0, 0, 0, 0.1);
+    outline: none;
+    // background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 14.8l3.13 3.2L19 9' stroke='%23ff7474' stroke-width='2' stroke-linecap='square'/%3E%3C/svg%3E");
+    height: 16px;
+    width: 16px;
+
+    &:checked {
+      border: solid 1px $coral;
+      background: $coral;
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 14.8l3.13 3.2L19 9' stroke='%23fff' stroke-width='2' stroke-linecap='square'/%3E%3C/svg%3E");
+    }
+  }
+
   .themes {
     label {
       display: flex;
       align-items: center;
       flex-direction: row;
       margin: 16px 0;
+      padding-bottom: 0;
+
       span {
         padding: 0;
         margin: 0 0 0 8px;
+      }
+    }
+  }
+
+  .add-themes {
+    padding-bottom: 24px;
+
+    .Theme {
+      padding: 24px 0;
+      border-bottom: $lightborder;
+
+      .label-wrapper {
+        display: flex;
+        justify-content: space-between;
+        .collapse {
+          font-size: 12px;
+          color: $coral;
+        }
+      }
+    }
+
+    a {
+      font-size: 18px;
+      display: inline-block;
+      margin-bottom: 24px;
+      color: $coral;
+      text-decoration: none;
+      border-bottom: solid 1px transparent;
+      &:hover {
+        border-bottom: solid 1px $coral;
       }
     }
   }
@@ -83,6 +151,12 @@ h6 {
     h3 {
       padding-bottom: 24px;
     }
+
+    .themes {
+      h3 {
+        padding-bottom: 0;
+      }
+    }
   }
 
   label {
@@ -97,9 +171,10 @@ h6 {
 
   input,
   textarea {
-    border: solid 1px rgba(0, 0, 0, 0.1);
+    border: $lightborder;
     padding: 8px;
     border-radius: 3px;
+    color: $text;
 
     &:focus {
       outline: none;
@@ -114,7 +189,6 @@ h6 {
   }
 
   section {
-    // padding-top: 24px;
     margin-bottom: 24px;
     border-bottom: solid 1px rgba(0, 0, 0, 0.1);
   }
@@ -122,11 +196,54 @@ h6 {
 
 .CoverLetter {
   margin-left: 48px;
-  max-width: 900px;
-  width: 100%;
+  width: 900px;
   padding: 24px 48px;
   display: flex;
   flex-direction: column;
+
+  .wrapper {
+    display: flex;
+  }
+
+  .editor-tools {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 24px;
+
+    .btn {
+      margin-bottom: 24px;
+      outline: none;
+      width: auto;
+      min-width: initial;
+    }
+  }
+
+  .copy-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background: $coral;
+    border: none;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 64px;
+    font-size: 22px;
+    text-align: right;
+    padding-right: 24px;
+    cursor: pointer;
+    outline: none;
+
+    span {
+      color: #fff;
+      transition: all 0.3s ease;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
 
   h1 {
     margin-bottom: 24px;
@@ -149,6 +266,12 @@ h6 {
     padding: 24px;
     text-align: left;
     border-radius: 3px;
+    width: 100%;
+
+    li {
+      padding: 8px 0;
+      color: $text;
+    }
 
     &:focus {
       outline: none;
