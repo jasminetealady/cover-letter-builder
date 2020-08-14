@@ -1,77 +1,37 @@
 <template>
   <nav class="Sidebar">
-    <div>
-      <label>
-        <span>Company Name</span>
-        <input type="text" v-model="store.coverLetter.companyApplyingTo" />
-      </label>
-      <label>
-        <span>Position Title</span>
-        <input type="text" v-model="store.coverLetter.positionApplyingTo" />
-      </label>
+    <div class="tabs">
+      <button
+        v-for="tab in tabs"
+        :key="tab.name"
+        :class="['tab', { active: currentTab.name === tab.name }]"
+        @click="currentTab = tab"
+      >
+        <span>{{ tab.name }}</span>
+      </button>
     </div>
-    <div>
-      <label>
-        <span>Previous Position</span>
-        <input
-          type="text"
-          v-model="store.coverLetter.previousOrCurrentPosition"
-        />
-      </label>
-      <label>
-        <span>Previous Company</span>
-        <input
-          type="text"
-          v-model="store.coverLetter.previousOrCurrentCompany"
-        />
-      </label>
-      <label>
-        <span>I currently work here</span>
-        <input
-          type="checkbox"
-          v-model="store.coverLetter.isCurrentlyEmployed"
-        />
-      </label>
-      <label>
-        <span>What did you do? Use an action verb</span>
-        <input type="text" v-model="store.coverLetter.firstPositionAction" />
-      </label>
-      <label>
-        <span>Let's say you said 'managed'. Who or what did you manage?</span>
-        <input type="text" v-model="store.coverLetter.firstPositionNoun" />
-      </label>
-      <label>
-        <span>With what tools or technologies?</span>
-        <input type="text" v-model="store.coverLetter.firstPositionTools" />
-      </label>
-    </div>
-    <div>
-      <label>
-        <span>Second to Last Company</span>
-        <input type="text" v-model="store.coverLetter.secondPreviousCompany" />
-      </label>
-      <label>
-        <span>Second to Last Position</span>
-        <input type="text" v-model="store.coverLetter.secondPreviousPosition" />
-      </label>
-      <label>
-        <span>What did you do? Use an action verb</span>
-        <input type="text" v-model="store.coverLetter.secondPositionAction" />
-      </label>
-      <label>
-        <span>Let's say you said 'managed'. Who or what did you manage?</span>
-        <input type="text" v-model="store.coverLetter.secondPositionNoun" />
-      </label>
-      <label>
-        <span>With what tools or technologies?</span>
-        <input type="text" v-model="store.coverLetter.secondPositionTools" />
-      </label>
-    </div>
+    <component :is="currentTab.component" />
   </nav>
 </template>
 
 <script>
+import Experience from './Experience'
+import Connect from './Connect'
+import You from './You'
+import SignOff from './SignOff'
 export default {
-  inject: ['store']
+  inject: ['store'],
+  components: { Experience, Connect, You, SignOff },
+  data() {
+    return {
+      currentTab: { name: 'p1', component: Experience },
+      tabs: [
+        { name: 'p1', component: Experience },
+        { name: 'p2', component: Connect },
+        { name: 'p3', component: You },
+        { name: 'p4', component: SignOff }
+      ]
+    }
+  }
 }
 </script>

@@ -28,6 +28,29 @@
         <EditorInput v-model="store.coverLetter.secondPositionNoun" /> with
         <EditorInput v-model="store.coverLetter.secondPositionTools" />.
       </p>
+      <br />
+      <p>
+        I am interested in working for
+        <EditorInput v-model="store.coverLetter.companyApplyingTo" />
+        because <EditorInput v-model="store.coverLetter.reasonApplying" />.
+        {{ ' ' }}
+        <span :key="theme.id" v-for="theme in store.coverLetter.themes"
+          >{{ theme.chunk }}{{ ' ' }}</span
+        >
+      </p>
+      <br />
+      <p>
+        I believe I am worthy of your time interviewing for this position, as
+        not only do I believe I have the technical ability you require, but I
+       <ul>
+         <li :key="thing" v-for="thing in store.coverLetter.thingsYouBring">{{thing}}</li>
+       </ul>
+      </p>
+      <br />
+      <p>
+        <EditorInput v-model="store.coverLetter.signOff" />
+      </p>
+      <p>Luxe</p>
     </div>
   </main>
 </template>
